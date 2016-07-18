@@ -2,7 +2,7 @@ from __future__ import division
 
 import pandas as pd
 import matplotlib.pyplot as plt
-
+import numpy as np
 
 del_data = pd.read_csv('airline_delay_causes.csv')
 
@@ -76,9 +76,17 @@ plt.close('all')
 plt.figure(0)
 del_prob_year.plot(kind='bar', color='green', alpha=0.8)
 plt.ylabel('Chance of at least 15min delay in %')
+plt.title( city +' => '+airline , fontsize=15 )
+plt.savefig('yearly_histogram.png' , dpi=400)
 
 plt.figure(1)
 
 del_prob_month.plot( color='blue', linewidth=2)
 plt.ylabel('Chance of at least 15min delay in %')
+a = plt.axis()
+plt.xticks( np.arange( int(a[0]) , int(a[1]) +1 ) , np.arange( int(a[0]) , int(a[1]) +1 ))
 
+import datetime
+cal_month = datetime.date(1900, int(month), 1).strftime('%B')
+plt.title( cal_month , fontsize=15 )
+plt.savefig('monthly_plot.png' , dpi=400)
