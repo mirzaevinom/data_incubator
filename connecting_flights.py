@@ -1,3 +1,10 @@
+"""
+Author: Inom Mirzaev
+
+This is a prototype application that I have proposed. 
+Directions on the command line should be pretty self explanatory.
+"""
+
 from __future__ import division
 
 import pandas as pd
